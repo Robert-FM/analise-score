@@ -1,37 +1,66 @@
 # ANALISE-SCORE
 
-Sistema de **Credit Scoring** desenvolvido em Python para previsão de risco de inadimplência utilizando técnicas de Machine Learning. O projeto realiza treinamento de modelos, avaliação de métricas e disponibiliza uma interface web interativa com Streamlit para simulação de risco de crédito.
+Sistema de **Credit Scoring com Machine Learning** para previsão de risco de inadimplência, desenvolvido em Python.
+
+O projeto realiza:
+
+- Pré-processamento de dados
+- Análise estatística exploratória
+- Treinamento e comparação de modelos
+- Avaliação automática de métricas
+- Persistência do melhor modelo
+- Simulação interativa via Streamlit
 
 ---
 
-## 📌 Objetivo
+# 🚀 Objetivo
 
-O objetivo deste projeto é prever a probabilidade de inadimplência de clientes com base em características financeiras e cadastrais, auxiliando processos de análise de crédito.
+O objetivo deste projeto é prever a probabilidade de inadimplência de clientes com base em características financeiras e cadastrais.
+
+O sistema utiliza técnicas de Machine Learning para auxiliar processos de análise de crédito e tomada de decisão.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+# 🛠️ Tecnologias Utilizadas
 
-- Python 3.14
+## Linguagem
+
+- Python
+
+## Bibliotecas
+
 - Pandas
 - NumPy
 - Scikit-learn
 - Streamlit
 - Joblib
-- UV (gerenciador de ambientes e dependências)
+
+## Ambiente e Dependências
+
+- UV
+- Virtual Environment (venv)
 
 ---
 
-## 📂 Estrutura do Projeto
+# 📂 Estrutura do Projeto
 
 ```bash
 ANALISE-SCORE/
 │
+├── .venv/
+│
+├── analise-estatistica/
+│   └── analise-dados.ipynb      # Análise exploratória e estatística
+│
 ├── app/
-│   └── app.py
+│   └── app.py                   # Interface Streamlit
 │
 ├── data/
-│   └── credit_risk_dataset.csv
+│   ├── 01-raw/
+│   │   └── credit_risk_dataset.csv
+│   │
+│   └── 02-processed/
+│       └── credit_risk_processed.csv
 │
 ├── models/
 │   └── credit_scoring_model.joblib
@@ -53,32 +82,43 @@ ANALISE-SCORE/
 
 ---
 
-## 📊 Funcionalidades
+# 📊 Funcionalidades
 
-- Treinamento automático de múltiplos modelos:
-  - Logistic Regression
-  - Random Forest
-  - Gradient Boosting
-- Seleção automática do melhor modelo via ROC-AUC
-- Geração de relatórios de métricas
-- Salvamento do modelo treinado
-- Interface web interativa para simulação de risco
-- Pipeline completo de pré-processamento
+✅ Treinamento automático de múltiplos modelos  
+✅ Comparação automática de desempenho  
+✅ Pipeline completo de pré-processamento  
+✅ Geração automática de métricas  
+✅ Persistência do melhor modelo  
+✅ Interface web interativa com Streamlit  
+✅ Análise estatística exploratória  
 
 ---
 
-## ⚙️ Pré-processamento
+# ⚙️ Pipeline de Machine Learning
 
 O pipeline inclui:
 
 - Tratamento de valores ausentes
 - Normalização de variáveis numéricas
-- Codificação One-Hot para variáveis categóricas
+- One-Hot Encoding para variáveis categóricas
 - Separação treino/teste estratificada
+- Comparação automática entre modelos
+- Seleção do melhor modelo via ROC-AUC
+- Exportação do modelo treinado
 
 ---
 
-## 📈 Métricas Avaliadas
+# 🤖 Modelos Avaliados
+
+| Modelo | Descrição |
+|---|---|
+| Logistic Regression | Modelo linear interpretável |
+| Random Forest | Ensemble baseado em árvores |
+| Gradient Boosting | Boosting incremental para melhor performance |
+
+---
+
+# 📈 Métricas Avaliadas
 
 O projeto calcula automaticamente:
 
@@ -92,25 +132,9 @@ O projeto calcula automaticamente:
 
 ---
 
-## 🧠 Modelos Utilizados
+# 📦 Instalação
 
-### Logistic Regression
-
-Modelo linear simples e interpretável.
-
-### Random Forest
-
-Modelo baseado em árvores de decisão com ensemble.
-
-### Gradient Boosting
-
-Modelo de boosting para melhoria incremental do desempenho.
-
----
-
-## 🔧 Como Executar o Projeto
-
-### 1. Clone o repositório
+## 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/Robert-FM/analise-score.git
@@ -119,17 +143,17 @@ cd analise-score
 
 ---
 
-## 📦 Ambiente com UV
+# 🔧 Configuração do Ambiente
 
-### Instalar o UV
+## Instalar o UV
 
-#### Linux/Mac
+### Linux/Mac
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-#### Windows (PowerShell)
+### Windows (PowerShell)
 
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -137,7 +161,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 ---
 
-### Criar ambiente virtual
+## Criar ambiente virtual
 
 ```bash
 uv venv
@@ -145,15 +169,15 @@ uv venv
 
 ---
 
-### Ativar ambiente
+## Ativar ambiente virtual
 
-#### Linux/Mac
+### Linux/Mac
 
 ```bash
 source .venv/bin/activate
 ```
 
-#### Windows
+### Windows
 
 ```powershell
 .venv\Scripts\activate
@@ -161,21 +185,15 @@ source .venv/bin/activate
 
 ---
 
-### Instalar dependências
+## Instalar dependências
 
 ```bash
 uv sync
 ```
 
-ou
-
-```bash
-uv pip install -r requirements.txt
-```
-
 ---
 
-## ▶️ Treinar os Modelos
+# ▶️ Treinando os Modelos
 
 ```bash
 python src/train_model.py
@@ -184,22 +202,13 @@ python src/train_model.py
 O treinamento irá:
 
 - Comparar os modelos
-- Selecionar o melhor
-- Salvar o modelo em:
-
-```bash
-models/credit_scoring_model.joblib
-```
-
-Também serão gerados relatórios em:
-
-```bash
-reports/
-```
+- Selecionar automaticamente o melhor
+- Salvar o modelo treinado
+- Gerar relatórios de desempenho
 
 ---
 
-## 🌐 Executar a Interface Web
+# 🌐 Executando a Aplicação Web
 
 ```bash
 streamlit run app/app.py
@@ -209,7 +218,7 @@ A aplicação abrirá automaticamente no navegador.
 
 ---
 
-## 🖥️ Interface da Aplicação
+# 🖥️ Interface da Aplicação
 
 A aplicação permite inserir informações como:
 
@@ -226,16 +235,16 @@ E retorna:
 - Probabilidade estimada de inadimplência
 - Classificação do risco:
   - Baixo risco
-  - Risco moderado
+  - Médio risco
   - Alto risco
 
 ---
 
-## 📌 Dataset
+# 📌 Dataset
 
 O projeto utiliza um dataset de risco de crédito contendo informações financeiras e comportamentais dos clientes.
 
-### Variável alvo
+## Variável alvo
 
 ```python
 loan_status
@@ -243,38 +252,43 @@ loan_status
 
 ---
 
-## 📄 Arquivos Importantes
+# 📊 Análise Exploratória
 
-### `app/app.py`
+A pasta `analise-estatistica/` contém notebooks utilizados para:
 
-Arquivo responsável pela interface web utilizando Streamlit.
-
-### `src/train_model.py`
-
-Pipeline completo de treinamento, avaliação e persistência do modelo.
+- Exploração dos dados
+- Análise estatística
+- Identificação de padrões
+- Distribuição das variáveis
+- Correlação entre atributos
+- Avaliação inicial da inadimplência
 
 ---
 
-## 📚 Melhorias Futuras
+# 📈 Melhorias Futuras
 
-- Deploy em nuvem (Render, Railway ou AWS)
-- Explicabilidade com SHAP/LIME
+- Deploy em nuvem (AWS, Render ou Railway)
 - API REST com FastAPI
-- Dashboard analítico
+- Explicabilidade com SHAP/LIME
 - Monitoramento de drift
 - Balanceamento de classes avançado
+- MLflow para rastreamento de experimentos
+- Dockerização da aplicação
 
 ---
 
-## 👨‍💻 Autor
+# 👨‍💻 Autor
 
-**Robert Fernandes de Melo**
+## Robert Fernandes de Melo
 
-- Física | Machine Learning | Data Science
-- Python • IA • Visão Computacional • Django
+- Física
+- Machine Learning
+- Data Science
+- Visão Computacional
+- Desenvolvimento Python
 
 ---
 
-## 📜 Licença
+# 📜 Licença
 
-Este projeto é destinado para fins educacionais e de portfólio.
+Este projeto foi desenvolvido para fins educacionais, estudos em Machine Learning e composição de portfólio profissional.
